@@ -1,8 +1,7 @@
 # Site settings
 title: Vladimir Notes
 email: vladimir@kotov.lv
-url: "http://rk13.github.io/blog"
-baseurl: "/blog"
+url: "http://rk13.github.io"
 twitter_username: rk13
 github_username:  rk13
 
