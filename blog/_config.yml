@@ -1,0 +1,12 @@
+# Site settings
+title: Vladimir Notes
+email: vladimir@kotov.lv
+url: "http://rk13.github.io"
+baseurl: "/blog"
+twitter_username: rk13
+github_username:  rk13
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables", "autolink", "strikethrough", "fenced_code_blocks"]
