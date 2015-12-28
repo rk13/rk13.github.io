@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "Backup"
+date:   2011-09-13 12:00:00
+---
+In last few days I was not too busy with the work tasks and had the time to finally re-desing and implement new backup strategy for my laptop and home PC, both running Ubuntu, btw. Below are some instructions for setting the things up. I write those mostly for myself as we all have the tendency to forget things, however I would be glad if someone find those instructions usefull.
+
+#Security concerns.
+
+I am aware of several pieces of sensitive information present in my user home folder  (e.g. ssh, gnupg or openvpn keys, etc) and prefer those not to be automatically backed up as is in clear text form. As a solution I ended up using standart [Ubuntu encrypted private directory][ubuntu-enchome] in my home, where the content of my sensitive data from .ssh/ and others is moved in ~/Private and replaced with a symlink.
+
+[ubuntu-enchome]:https://help.ubuntu.com/community/EncryptedPrivateDirectory
+
+#Rshapshot is your friend
+
+Since my home folder usually is rather "fat" I prefer incremental backup due to optimized usages of disk space, however it is important for me to be able to see the full state of my backed up home as it was at some point of time in the past (e.g. month or week ago). With [rsnapshot][rsnapshot] it is possible to keep multiple, full backups instantly available using rsync and hard links, while the disk space required is just a little more than the space of one full backup, plus incrementals.
+
+[rsnapshot]:http://rsnapshot.org/
+
+#Security concerns x2
+
+In order to be able to do rsnapshot backups the process should be initiated on backup server side.The easiest way to provide list of locally changed resources is to start up an rsync daemon locally listening for some port. However the following concerns migh arrise at this point: 1) we do not want our data to be sent over the wire unencrypted 2) the direct connection from backup server to our host may not be possible. My preferable solution is establishing ssh tunnel on needed port for the time of backup.
+
+#Show me the code (c)
+
+The script for starting local rsync daemon, connecting to remote backup server, setting up ssh tunel and initiating remote rsnapshot process. Configuration items are not included.
+
+```
+# <backup_sync.sh>
+
+ BAK_CONF_DIR="<your value>"
+ BAK_RSYNCD_PORT="31337"
+ BAK_RSYNC_CMD="/usr/bin/rsnapshot -c <your rsnapshot.conf> sync"
+ BAK_SSH_HOST="<your backup server>"
+ BAK_EXIT_CODE=1
+ 
+ ################################################################################
+ 
+ echo "[`date --rfc-3339=second`][$$] Check if rsync daemon is not running already ..."
+ [ -f $BAK_CONF_DIR/rsyncd.pid ] && ps `cat $BAK_CONF_DIR/rsyncd.pid` |  grep "rsync --daemon" &&  exit 1
+ 
+ echo "[`date --rfc-3339=second`][$$] Trying backup server ..."
+ [ "x`/usr/bin/ssh -i $BAK_CONF_DIR/backup_key $BAK_SSH_HOST echo ok`" = "xok" ] || exit 1
+ 
+ echo "[`date --rfc-3339=second`][$$] Starting rsync daemon and sync..."
+ /bin/rm -f $BAK_CONF_DIR/rsyncd.pid
+ 
+ /usr/bin/rsync --daemon --config=$BAK_CONF_DIR/rsyncd.conf --port=$BAK_RSYNCD_PORT &&
+ /usr/bin/ssh -i $BAK_CONF_DIR/backup_key  -R $BAK_RSYNCD_PORT:127.0.0.1:$BAK_RSYNCD_PORT $BAK_SSH_HOST $BAK_RSYNC_CMD &&
+ BAK_EXIT_CODE=0
+ 
+ echo "[`date --rfc-3339=second`][$$] Process finished with code $BAK_EXIT_CODE."
+ 
+ echo "[`date --rfc-3339=second`][$$] Stoping rsync daemon ..."
+ 
+ kill -s KILL `cat $BAK_CONF_DIR/rsyncd.pid`
+ /bin/rm -f $BAK_CONF_DIR/rsyncd.pid
+ 
+ exit $BAK_EXIT_CODE
+```
+
+#Safety belt
+
+The script above should be run daily, however in order to avoid and recover from interrupts the following wrapper scheduled hourly ensures backup is finished successfully or starts backup_sync.sh.
+
+```
+# <backup_sync.sh>
+
+exec 1>>/var/log/backup.rsnapshot.log 2>&1
+
+touch /var/spool/rsnapshot/daily.pos
+[ x"`date --rfc-3339=d`" = x"`cat /var/spool/rsnapshot/daily.pos`" ] &&
+#echo "[`date --rfc-3339=second`][$$] Snapshot done already. Exiting..." &&
+exit 0
+
+backup_sync.sh daily &&
+date --rfc-3339=d > /var/spool/rsnapshot/daily.pos &&
+backup_rotate.sh daily
+```
+
+You may already noticed that processes of data synchronization and snapshot rotation is separate in this configuration.
+
+```
+# <backup_rotate.sh>
+
+BAK_CONF_DIR="<your configurations>"
+BAK_RSYNCD_PORT="31337"
+BAK_RSYNC_CMD="/usr/bin/rsnapshot -c <your rsnapshot.conf> $1"
+BAK_SSH_HOST="<your host>"
+
+################################################################################
+
+[ "x`/usr/bin/ssh -i $BAK_CONF_DIR/backup_key $BAK_SSH_HOST echo ok`" = "xok" ] || exit 1
+
+/usr/bin/ssh -i $BAK_CONF_DIR/backup_key -R $BAK_RSYNCD_PORT:127.0.0.1:$BAK_RSYNCD_PORT $BAK_SSH_HOST $BAK_RSYNC_CMD
+```
+That's it. Happy backup!
+

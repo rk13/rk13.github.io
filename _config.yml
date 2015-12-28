@@ -1,5 +1,5 @@
 # Site settings
-title: Vladimir Notes
+title: Asynchronous inputs
 email: vladimir@kotov.lv
 url: "http://rk13.github.io"
 twitter_username: rk13
@@ -9,3 +9,5 @@ github_username:  rk13
 markdown: redcarpet
 redcarpet:
   extensions: ["tables", "autolink", "strikethrough", "fenced_code_blocks"]
+
+
