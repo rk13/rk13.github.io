@@ -68,6 +68,9 @@ execute dbms_outln_edit.refresh_private_outline('PRIVOL_BAD');
 execute dbms_outln_edit.refresh_private_outline('PRIVOL_GOOD');
 create or replace outline T_SOTEST_BAD from private PRIVOL_BAD;
 ```
+
+--
+
 https://gist.github.com/rk13/5130698#file-oracle-tune-outline
 
 http://oracle-knowledgemine.blogspot.com/2009/06/stored-outline-in-oracle-10g.html
