@@ -2,7 +2,6 @@
 layout: page
 title: About
 permalink: /about/
-test
 ---
 
 Name: Vladimir Kotov
