@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Google CodeJam 2018"
+date:   2018-04-08 12:00:00
+---
+
+### Passed Google's #CodeJam Qualification round! 
+
+#### Score: 79/100
+
+#### Rank: 1854 / 24589 
+
+#### Mood: happy :)
+
+![](/resources/2018-04-08-codejam-1.jpg)
+
