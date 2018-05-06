@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Curie upgrade"
-date:   2012-12-15 12:00:00
+date:   2016-12-15 12:00:00
 ---
 
 Curie - выделенный сервер  арендуемый у Hetzner на протяжении почти 3 лет. Несмотря на внутреннее разделение ресурсов используя виртуализацию на базе VirtualBox, ранее [описанной][1], периодически приходиться сталкиваться с последствиями непродуманного изначального разбиения дисков (используемого по умолчанию в Hetzner):
@@ -167,7 +167,7 @@ sdb4 ~ 300gb
 #cp -dpRx /var/ /mnt/varlv
 ```
 
-[1]: http://blog.kotov.lv/2011/05/planning-the-future-for-curie/
+[1]: http://blog.kotov.lv/2015/05/planning-the-future-for-curie/
 
 [2]: http://wiki.hetzner.de/index.php/Installimage/ru
 

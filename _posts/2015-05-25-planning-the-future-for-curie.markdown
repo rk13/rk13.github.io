@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Planning the future for Curie"
-date:   2011-05-25 12:00:00
+date:   2015-05-25 12:00:00
 ---
 
 Our working horse Curie is up for quite a long time running oldstable Lenny more than a year without restart (all kudos to Hetzner), and I think it should get crispy Squeeze soon.

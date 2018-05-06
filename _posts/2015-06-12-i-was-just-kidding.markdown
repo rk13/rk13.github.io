@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "I was just kidding ... Ok?"
-date:   2011-06-12 12:00:00
+date:   2015-06-12 12:00:00
 ---
 
 While digging in my document archives have found my old diploma work in the Higher School of Social Technologies on the topic "Copyright protection in the sphere of software development", 2005.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "New Jekyll-based Blog"
-date:   2015-12-29 12:00:00
+date:   2017-12-29 12:00:00
 ---
 
 I decided to migrate from WordPress engine to a Git-based blog. 

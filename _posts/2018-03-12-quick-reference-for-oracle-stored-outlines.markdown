@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Quick reference for Oracle stored outlines"
-date:   2013-03-12 12:00:28
+date:   2018-03-12 12:00:28
 ---
 
 Sometimes when you are faced with Oracle performance issues in production, the quick remedy is to use stored outlines to tune SQL execution plan without the need to alter the code.

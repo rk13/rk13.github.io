@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Git cheatsheet"
-date:   2011-05-29 12:00:00
+date:   2016-05-29 12:00:00
 ---
 
 I will try to keep this post updated with useful tips for git usage. 

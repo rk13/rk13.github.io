@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Backup"
-date:   2011-09-13 12:00:00
+date:   2017-09-13 12:00:00
 ---
 In last few days I was not too busy with the work tasks and had the time to finally re-desing and implement new backup strategy for my laptop and home PC, both running Ubuntu, btw. Below are some instructions for setting the things up. I write those mostly for myself as we all have the tendency to forget things, however I would be glad if someone find those instructions usefull.
 

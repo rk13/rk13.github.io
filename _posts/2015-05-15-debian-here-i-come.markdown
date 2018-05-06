@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Debian, here I come"
-date:   2011-05-15 02:00:28
+date:   2015-05-15 02:00:28
 ---
 
 I started to use Debian GNU/Linux more that 5 years ago for server-side. The small hosting environment I am currently playing with at my leisure runs mostly Lenny and Squeeze instances. About 3 years ago I have also decided to start using Ubuntu as my primary desktop operating system at home. The transition period was hard and painful sometimes, but now my laptop and PC are running Lucid and Karmic.
