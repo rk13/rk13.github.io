@@ -24,6 +24,6 @@ I was able to implement:
 
 ### Total score is 93.46 (360 max)
 
-#### Rank: [604 out of 4163](https://www.hackerrank.com/results/world-codesprint-13/vladimir_kotov?utm_campaign=contest_results&utm_medium=social&utm_source=twitter)
+#### Rank: [586 out of 4163](https://www.hackerrank.com/results/world-codesprint-13/vladimir_kotov?utm_campaign=contest_results&utm_medium=social&utm_source=twitter)
 
 
