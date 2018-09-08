@@ -6,7 +6,7 @@ permalink: /contributions/
 
 *Here to be ocasionally updated list of my open source contributions during 2018.*
 
-### 2018-01: Netflix Ribbon and Spring Cloud Netflix
+### Netflix Ribbon and Spring Cloud Netflix
 
 Netflix Ribbon is a client side IPC library that is battle-tested in cloud. It provides the following features: Load balancing, Fault tolerance, Multiple protocol (HTTP, TCP, UDP) support in an asynchronous and reactive model, Caching and batching.
 
