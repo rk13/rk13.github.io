@@ -12,7 +12,7 @@ Irc: rk13 on network irc.freenode.net
 
 Twitter: @rk13
 
-LinkedIn: https://www.linkedin.com/in/vladimirkotov/
+LinkedIn: https://www.linkedin.com/in/vladimirkotov
 
 Time zone: Latvia/Riga
 
