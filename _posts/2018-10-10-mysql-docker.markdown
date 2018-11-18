@@ -4,13 +4,13 @@ title:  "Mysql Docker"
 date:   2018-10-10 12:00:00
 ---
 
-It was an early Saturday morning when I have received a message from one of my personal small project owners that site seems to be down. Although Hetzner monitoring was not reporting any anomaly... It was the beginning of the very long day.
+It was an early Saturday morning when I have received a message from one of my personal small project owners that site seems to be down. Although Hetzner monitoring was not reporting any anomaly... It was the beginning of a very long day.
 
-The site was running in separate virtual environment and has its mysql database in the form of docker container running on "mayer" (our primary working horse at Hetzner).
+The site was running in a separate virtual environment and has its own MySQL database instance in the form of Docker container running on "mayer" (our primary working horse at Hetzner).
 
-Site engine reported error connecton to database engine using dedicated user, although database container was runnng fine.
+Site engine reported error connection to the database engine using a dedicated user, although the database container was running fine.
 
-After connecting to database admin I havn't found any database schemas except for 'WARNING' with one table
+After connecting to database admin I haven't found any database schemas except for 'WARNING' with one table
 
 ```
 mysql> show tables;
