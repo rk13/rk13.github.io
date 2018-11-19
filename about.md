@@ -10,8 +10,12 @@ Email: vladimir kotov.lv
 
 Irc: rk13 on network irc.freenode.net
 
+Twitter: @rk13
+
+LinkedIn: https://www.linkedin.com/in/vladimirkotov
+
 Time zone: Latvia/Riga
 
-Current occupation: Software Engineer at Citadele Banka
+Current occupation: Development Team Lead at Citadele Banka
 
 Values: Family, Programming, Work, Study
