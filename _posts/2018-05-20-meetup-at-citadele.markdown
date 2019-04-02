@@ -17,7 +17,7 @@ We proudly present our guys:
 
 * Android. “Pay with your phone, we took care of the rest” by Roman Stepanov
 
-* “How tо go through fire and water with MobileSCAN” by Vladimir Kotov
+* [“How tо go through fire and water with MobileSCAN” by Vladimir Kotov](/resources/2018-05-20-mobilescan-slides.pdf)
 
 * Something else
 
