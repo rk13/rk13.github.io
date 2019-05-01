@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Citadele Bank Developers on meduim.com"
+title:  "Citadele Bank Developers @ meduim.com"
 date:   2019-03-20 12:00:00
 ---
 
