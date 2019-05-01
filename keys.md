@@ -1,8 +1,8 @@
----
-layout: page
-title: My Keys
-permalink: /keys/
----
+#---
+#layout: page
+#title: My Keys
+#permalink: /keys/
+#---
 
 [GnuPG](https://gnupg.org/)
 ===============
