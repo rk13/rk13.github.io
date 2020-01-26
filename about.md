@@ -12,8 +12,8 @@ Twitter: @rk13
 
 LinkedIn: https://www.linkedin.com/in/vladimirkotov
 
-Time zone: Latvia/Riga
+Time zone: Sweden/Stockholm
 
-Current occupation: Development Team Lead at Citadele Banka
+Current occupation: Senior Software Engineer at Klarna
 
 Values: Family, Programming, Work, Study
