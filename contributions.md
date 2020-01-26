@@ -4,7 +4,9 @@ title: Contributions
 permalink: /contributions/
 ---
 
-*Here to be ocasionally updated list of my open source contributions during 2018.*
+*Here to be ocasionally updated list of my open source contributions*
+
+## 2018
 
 ### Netflix Ribbon and Spring Cloud Netflix
 
@@ -26,3 +28,20 @@ Spring Cloud Netflix project provides Netflix OSS integrations for Spring Boot a
 #### Released in Netflix Ribbon 2.2.5
 * https://github.com/Netflix/ribbon/releases/tag/v2.2.5
 
+## Older
+
+### Debian / Ubuntu packages
+
+Debian, also known as Debian GNU/Linux, is a Linux distribution composed of free and open-source software, developed by the community-supported Debian Project. I was rather ambitious and aimed to package `SQuirreL` client and its dependencies starting from `rsyntaxtextarea` library. 
+
+#### Mentioned as Debian Contributor 
+http://www.debian.org/News/weekly/2011/08/#newcontributors
+
+#### rsyntaxtextarea Ubuntu package page
+https://packages.debian.org/source/stable/rsyntaxtextarea
+
+#### rsyntaxtextarea Debian package page
+https://packages.ubuntu.com/source/bionic/rsyntaxtextarea
+
+#### SQuirreL client ppa
+https://launchpad.net/~rk13/+archive/rk13-ppa
