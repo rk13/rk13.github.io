@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Hashcode team competition 2020"
+date:   2020-02-20 12:00:00
+---
+
+### Woohoo! My team came in 64th place overall in the #HashCode Online Qualification Round in Sweden. 
+
+#### Mood: Let the team shine :)
+
+![](/resources/hashcode-2020-02.png)
+

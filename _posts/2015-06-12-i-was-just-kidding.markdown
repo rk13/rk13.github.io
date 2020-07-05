@@ -8,18 +8,7 @@ While digging in my document archives have found my old diploma work in the High
 
 One of the conclusions made based on the analysis of the existing legislation and practice in Latvia was the following.
 
-(original, in russian)
->
-На основании изученного материала автор сформулировал следующие предложения:
-[...]
-2)Вторым возможным путём развития данной отрасли является переход к патентной защите и установления аналогии между промышленными технологиями и технологиями обработки данных, который, однако, сопряжен с большими трудностями контроля софтверных патентов во всех странах мира и подразумевает создание хранилища алгоритмов (т.е. их программных реализаций), по типу Патентного института по программному обеспечению, что позволит избежать дублирования программных реализаций и улучшения технологии повторного использования кода программного обеспечения.
-3)В качестве правового пути решения вышеизложенных проблем, можно предложить:
-[...]
-3.5.использовать понятие интеллектуальной деятельности и интеллектуальных способностей автора при определении охраноспособности компьютерной программы в противовес используемому в Законе об авторском праве понятию творчества. Данный факт объясняется тем, что специфика создания компьютерных программ зачастую требует от разработчика значительных интеллектуальных, но отнюдь не творческих усилий, что также подтверждает терминология, использованная в  Директиве 91/250/ЕЕС“О правовой охране программ для ЭВМ” от 14 мая 1991 года;
-[...]
-
-
-(translated in english)
+(original translated to english)
 >
 [...]
 2) The second possible through the development of this industry is the transition to patent protection and establish an analogy between the industrial technology and data processing technology, which, however, fraught with great difficulties controlling software patents worldwide, and involves the creation of the repository of algorithms (ie, their software implementations), the type of Patent Institute Software, that will avoid duplication of software implementations, and improving technology, reusability of software.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Return of the Nexus 4"
-date:   2018-05-01 12:00:00
+date:   2020-05-01 12:00:00
 ---
 
 I started to use Android as my primary mobile platform back to 2010 with legendary [LG Optimus.](https://en.wikipedia.org/wiki/LG_Optimus_series)
