@@ -14,6 +14,6 @@ LinkedIn: https://www.linkedin.com/in/vladimirkotov
 
 Time zone: Sweden/Stockholm
 
-Current occupation: Senior Software Engineer at Klarna
+Current occupation: Competence Lead & Senior Software Engineer at Klarna
 
 Values: Family, Programming, Work, Study

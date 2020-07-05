@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Google CodeJam 2020"
+date:   2020-04-05 12:00:00
+---
+
+### Passed Google's #CodeJam 2020 Qualification round! 
+
+#### Score: 75/100
+
+#### Rank: 1858 out of 44000 
+
+#### Mood: happy :) See you in the next round!
+
+![](/resources/codejam-2020-04.jpeg)
+
