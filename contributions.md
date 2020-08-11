@@ -6,7 +6,17 @@ permalink: /contributions/
 
 *Here to be ocasionally updated list of my open source contributions*
 
-## 2018
+## 2020
+
+### Apache Flink
+
+Apache Flink is an open source stream processing framework with powerful stream- and batch-processing capabilities.
+Learn more about Flink at https://flink.apache.org/
+
+[Fixed issue] https://issues.apache.org/jira/browse/FLINK-18865
+[Pull request] https://github.com/apache/flink/pull/13096
+
+## 2018-2019
 
 ### Netflix Ribbon and Spring Cloud Netflix
 
