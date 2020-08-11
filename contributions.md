@@ -11,10 +11,13 @@ permalink: /contributions/
 ### Apache Flink
 
 Apache Flink is an open source stream processing framework with powerful stream- and batch-processing capabilities.
-Learn more about Flink at https://flink.apache.org/
+It is a framework and distributed processing engine for stateful computations over unbounded and bounded data streams. Flink has been designed to run in all common cluster environments, perform computations at in-memory speed and at any scale.
 
-[Fixed issue] https://issues.apache.org/jira/browse/FLINK-18865
-[Pull request] https://github.com/apache/flink/pull/13096
+[Flink](https://flink.apache.org/)
+
+[Fixed issue](https://issues.apache.org/jira/browse/FLINK-18865)
+
+[Pull request](https://github.com/apache/flink/pull/13096)
 
 ## 2018-2019
 
