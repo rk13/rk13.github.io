@@ -1,18 +1,19 @@
 ---
 layout: post
-title:  "Flink Generic KafkaDeserializationSchema"
+title:  "Generic KafkaDeserializationSchema for FLINK"
 date:   2020-08-01 01:00:00
 ---
 
 ![stream of events](/resources/fabrizio-chiagano-YhnODmrg8hY-unsplash.jpg)
+<span align="center">Photo by <a href="https://unsplash.com/@fabriziochiagano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Fabrizio Chiagano</a> on <a href="https://unsplash.com/s/photos/digital?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
-<span>Photo by <a href="https://unsplash.com/@fabriziochiagano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Fabrizio Chiagano</a> on <a href="https://unsplash.com/s/photos/digital?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 # Stream processing and Apache Kafka
 
 Stream processing and [Apache Kafka](https://kafka.apache.org/) is Klarna's essential piece of infrastructure that enables engineering [data-driven culture](https://www.forbes.com/sites/forbestechcouncil/2020/01/22/why-a-data-driven-culture-matters-and-how-to-get-there/) and the ability to move forward with our new projects quickly.
 
 At Klarna decision services, we rely heavily on Kafka to process millions of data points streaming to us every day. We need to be able to provide easy to use ad-hoc analytics, aggregate these data points as they stream into our systems and also run arbitrary transformations to compute features and variables used later in the decisioning process, alert events and anomalies.
+
 
 # Apache Flink and AWS Kinesis Data Analytics
 
@@ -29,6 +30,7 @@ It is an AWS managed runtime environment for Apache Flink applications. Since th
 - treats batch data sources and streaming data sources same way, so we can use the same implementation for backfill and streaming parts of our pipeline
 - low latency computations with autoscaling options by AWS Kinesis Data Analytics
 - Java-based on out-of-the-box integration with [Apache Kafka](https://kafka.apache.org/), [Kinesis Data Streams](https://aws.amazon.com/kinesis/data-streams/) and [Apache Avro](http://avro.apache.org/).
+
 
 # Flink connector for Kafka
 
@@ -118,7 +120,7 @@ class GenericKafkaDeserializationSchema implements KafkaDeserializationSchema<Ge
 You should strongly consider using Schema Registry Client with client-side caching, e.g.[CachedSchemaRegistryClient](https://github.com/confluentinc/schema-registry/blob/master/client/src/main/java/io/confluent/kafka/schemaregistry/client/CachedSchemaRegistryClient.java.
 
 Also, be aware of potential internal optimizations for `KafkaAvroDeserializer` related to caching `DatumReader` instances (version not yet released at the moment) fixed in the scope of
-https://github.com/confluentinc/schema-registry/issues/1515. The actual gains from the fix vary somewhat based on hardware and Java version used but are generally [between ~3x and ~8x](https://github.com/confluentinc/schema-registry/issues/1515#issue-646876399). The cause is expensive DatumReader and DatumWriter objects being instantiated per record serialized or deserialized due to a lack of caching. The result is a lot of wasted CPU resources as well as potentially capping pipeline throughput.
+[https://github.com/confluentinc/schema-registry/issues/1515]. The actual gains from the fix vary somewhat based on hardware and Java version used but are generally [between ~3x and ~8x](https://github.com/confluentinc/schema-registry/issues/1515#issue-646876399). The cause is expensive DatumReader and DatumWriter objects being instantiated per record serialized or deserialized due to a lack of caching. The result is a lot of wasted CPU resources as well as potentially capping pipeline throughput.
 
 # Conclusion
 * Flink provides good out-of-box primitives to work with Kafka and Avro
