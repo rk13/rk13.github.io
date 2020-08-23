@@ -8,7 +8,8 @@ permalink: /talks/
 # "FLINK: Implementing Generic KafkaDeserializationSchema" on Internal FLINK knowledge sharing meetup at Klarna
 Sharing our experience and key learnings of using Amazon Kinesis Data Analytics and Flink for processing Kafka events encoded using Apache Avro and discuss how to implement custom deserialization schema in Flink and why you might need that.
 
-[Presentation slides](/resources/2020-08-flink_.pdf)
+[Post on the topic](https://blog.kotov.lv/2020/08/01/flink-generic-kafka-deserializationdchema.html)
+[Presentation slides](/resources/2020-08-flink.pdf)
 
 # "Talk from a local" on Klarna Live Series Riga
 Klarna Engineering Live Series: Riga is for Senior Software Engineers & Engineering Managers who want to hear about the engineering challenges and solutions that resulted in Klarna becoming the largest private FinTech company in the EU.
