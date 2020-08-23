@@ -21,7 +21,7 @@ Klarna Engineering Live Series: Riga is for Senior Software Engineers & Engineer
 
 Presentation on CodeRetreat sessions at Klarna with focus on the fundamentals of software development and design problem-solving principles.
 
-[Post about another participant experience of the event](https://medium.com/@nasimsalmany/klarna-global-day-of-code-retreat-on-16-nov-2019-db228d02d155)
+[Post about the event](https://blog.kotov.lv/2019/11/30/klarna-coderetreat.html)
 
 ## 2018
 
