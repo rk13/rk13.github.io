@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "Generic KafkaDeserializationSchema for FLINK"
+title:  "Flink GenericKafkaDeserializationSchema"
 date:   2020-08-01 01:00:00
 ---
 
 ![stream of events](/resources/fabrizio-chiagano-YhnODmrg8hY-unsplash.jpg)
-<span align="center">Photo by <a href="https://unsplash.com/@fabriziochiagano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Fabrizio Chiagano</a> on <a href="https://unsplash.com/s/photos/digital?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+
+<span>Photo by <a href="https://unsplash.com/@fabriziochiagano?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Fabrizio Chiagano</a> on <a href="https://unsplash.com/s/photos/digital?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 
 # Stream processing and Apache Kafka
@@ -117,10 +118,9 @@ class GenericKafkaDeserializationSchema implements KafkaDeserializationSchema<Ge
 
 # Additional optimizations
 
-You should strongly consider using Schema Registry Client with client-side caching, e.g.[CachedSchemaRegistryClient](https://github.com/confluentinc/schema-registry/blob/master/client/src/main/java/io/confluent/kafka/schemaregistry/client/CachedSchemaRegistryClient.java.
+You should strongly consider using Schema Registry Client with client-side caching, e.g.[CachedSchemaRegistryClient](https://github.com/confluentinc/schema-registry/blob/master/client/src/main/java/io/confluent/kafka/schemaregistry/client/CachedSchemaRegistryClient.java).
 
-Also, be aware of potential internal optimizations for `KafkaAvroDeserializer` related to caching `DatumReader` instances (version not yet released at the moment) fixed in the scope of
-[https://github.com/confluentinc/schema-registry/issues/1515]. The actual gains from the fix vary somewhat based on hardware and Java version used but are generally [between ~3x and ~8x](https://github.com/confluentinc/schema-registry/issues/1515#issue-646876399). The cause is expensive DatumReader and DatumWriter objects being instantiated per record serialized or deserialized due to a lack of caching. The result is a lot of wasted CPU resources as well as potentially capping pipeline throughput.
+Also, be aware of potential internal optimizations for `KafkaAvroDeserializer` related to caching `DatumReader` instances (version not yet released at the moment) fixed in the scope of [this issue](https://github.com/confluentinc/schema-registry/issues/1515). The actual gains from the fix vary somewhat based on hardware and Java version used but are generally [between ~3x and ~8x](https://github.com/confluentinc/schema-registry/issues/1515#issue-646876399). The cause is expensive DatumReader and DatumWriter objects being instantiated per record serialized or deserialized due to a lack of caching. The result is a lot of wasted CPU resources as well as potentially capping pipeline throughput.
 
 # Conclusion
 * Flink provides good out-of-box primitives to work with Kafka and Avro
