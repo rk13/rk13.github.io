@@ -125,14 +125,16 @@ Apache Flink’s out-of-the-box serialization can be roughly divided into the fo
 * *POJOs* - a public, standalone class with a public no-argument constructor and all non-static, non-transient fields in the class hierarchy either public or with a public getter- and a setter-method
 * *Generic types* - user-defined data types that are not recognized as a POJO and then serialized via [Kryo](https://github.com/EsotericSoftware/kryo).
 
-Flink offers built-in support for the Apache Avro serialization framework (currently using version 1.8.2) by adding the [org.apache.flink:flink-avro] dependency into your job. However, it is important to note that Avro’s *GenericRecord types cannot, unfortunately, be used automatically since they require the user to specify a schema*.
-Unfortunately in our case, it is not possible because we need to use *GenericRecord* in and custom *DeserializationSchema* exactly due to lack of strictly defined Avro schema. 
-Without this type of information, Flink will fall back to Kryo for serialization which would serialize the schema into every record, over and over again. As a result, the serialized form will be bigger and more costly to create. We have observed a huge (more than 5 times) performance drop in terms of CPU load when dealing with records backed by complex Avro schemas. 
+Flink offers built-in support for the Apache Avro serialization framework (currently using version 1.8.2) by adding the [org.apache.flink:flink-avro] dependency into your job. However, it is important to note that Avro’s *GenericRecord* types cannot, unfortunately, be used automatically since they require the user to specify a schema.
+Unfortunately in our case, it is not possible because we need to use *GenericRecord* in and custom *DeserializationSchema* exactly due to lack of strictly defined Avro schema.
 
-Since Avro’s Schema class is not serializable, it can not be sent around as is. You can work around this by converting it to a String and parsing it back when needed or you can improve your KafkaDeserializationSchema by returning
-[Tuple2](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types) or [Row](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types). 
+**Without type information, Flink will fall back to Kryo for GenericRecord serialization which would serialize the schema into every record, over and over again. As a result, the serialized form will be bigger and more costly to create. We have observed a huge performance drop in terms of increased CPU load when dealing with records backed by complex Avro schemas.**
 
-The example below demonstrates the optimizations done in one of our projects where KafkaDeserializationSchema functionality was combined with the mapper operator to avoid GenericRecord deserialization happening between those operators. 
+Since Avro’s Schema class is not serializable, it can not be sent around as is. You can work around this by converting it to a String and parsing it back when needed or you can improve your *KafkaDeserializationSchema* by returning
+[Tuple2](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types) or [Row](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types) entries instead. 
+
+The example below demonstrates the optimizations done in one of our projects where *KafkaDeserializationSchema* functionality was combined with the mapper operator to avoid *GenericRecord* deserialization happening between those operators. 
+
 Flink comes with a predefined set of tuple types that all have a fixed length and contain a set of strongly-typed fields of potentially different types. This certainly is a (performance) advantage when working with tuples instead of POJOs. Row types are mainly used by the Table and SQL APIs of Flink. A Row groups an arbitrary number of objects together similar to the tuples. Because exact field types are missing Row type information should be provided by the operator as well for effective serialization
 
 ```java
