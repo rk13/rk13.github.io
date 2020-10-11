@@ -116,7 +116,55 @@ class GenericKafkaDeserializationSchema implements KafkaDeserializationSchema<Ge
    }
 ```
 
-# Additional optimizations
+# Important performance optimizations. Flink Serialization
+
+Flink job exchanges data records between its operators. Records need to be serialized to bytes first, because the records may not only be sent to another instance in the same JVM but instead to a separate process. Also, Flink's off-heap state-backend is based on a local embedded RocksDB instance which is implemented in native C++ code and thus also needs transformation into bytes on every state access. Please read [Flink Serialization Tuning post](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html) for detailed explanation why wire and state serialization alone can easily cost a lot of your job’s performance if not executed correctly.
+
+Apache Flink’s out-of-the-box serialization can be roughly divided into the following groups:
+* *Flink-provided special serializers* - for basic types
+* *POJOs* - a public, standalone class with a public no-argument constructor and all non-static, non-transient fields in the class hierarchy either public or with a public getter- and a setter-method
+* *Generic types* - user-defined data types that are not recognized as a POJO and then serialized via [Kryo](https://github.com/EsotericSoftware/kryo).
+
+Flink offers built-in support for the Apache Avro serialization framework (currently using version 1.8.2) by adding the [org.apache.flink:flink-avro] dependency into your job. However, it is important to note that Avro’s *GenericRecord types cannot, unfortunately, be used automatically since they require the user to specify a schema*.
+Unfortunately in our case, it is not possible because we need to use *GenericRecord* in and custom *DeserializationSchema* exactly due to lack of strictly defined Avro schema. 
+Without this type of information, Flink will fall back to Kryo for serialization which would serialize the schema into every record, over and over again. As a result, the serialized form will be bigger and more costly to create. We have observed a huge (more than 5 times) performance drop in terms of CPU load when dealing with records backed by complex Avro schemas. 
+
+Since Avro’s Schema class is not serializable, it can not be sent around as is. You can work around this by converting it to a String and parsing it back when needed or you can improve your KafkaDeserializationSchema by returning
+[Tuple2](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types) or [Row](https://flink.apache.org/news/2020/04/15/flink-serialization-tuning-vol-1.html#tuple-data-types). 
+
+The example below demonstrates the optimizations done in one of our projects where KafkaDeserializationSchema functionality was combined with the mapper operator to avoid GenericRecord deserialization happening between those operators. 
+Flink comes with a predefined set of tuple types that all have a fixed length and contain a set of strongly-typed fields of potentially different types. This certainly is a (performance) advantage when working with tuples instead of POJOs. Row types are mainly used by the Table and SQL APIs of Flink. A Row groups an arbitrary number of objects together similar to the tuples. Because exact field types are missing Row type information should be provided by the operator as well for effective serialization
+
+```java
+    @Override
+    public Tuple2<Boolean, Row> deserialize(ConsumerRecord<byte[], byte[]> consumerRecord) {
+        try {
+            GenericRecord deserializedRecord = (GenericRecord) deserializer
+                    .deserialize(consumerRecord.topic(), consumerRecord.value());
+            return mapper.map(deserializedRecord);
+        } catch (Throwable t) {
+            LOGGER.warn("Error deserializing generic Avro record. {}", t.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public TypeInformation<Tuple2<Boolean, Row>> getProducedType() {
+        return Types.TUPLE(Types.BOOLEAN, Types.ROW(Types.STRING,
+                Types.SQL_TIMESTAMP,
+                Types.STRING,
+                Types.STRING,
+                Types.POJO(PGobject.class),
+                Types.STRING,
+                Types.STRING,
+                Types.STRING,
+                Types.STRING,
+                Types.SQL_TIMESTAMP));
+    }
+```
+
+
+# Additional optimizations. KafkaAvroDeserializer
 
 You should strongly consider using Schema Registry Client with client-side caching, e.g.[CachedSchemaRegistryClient](https://github.com/confluentinc/schema-registry/blob/master/client/src/main/java/io/confluent/kafka/schemaregistry/client/CachedSchemaRegistryClient.java).
 
