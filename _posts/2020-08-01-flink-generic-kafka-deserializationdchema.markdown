@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Implementing GenericKafkaDeserializationSchema for Apache Flink"
+title:  "On the crest of streams with Flink"
 date:   2020-08-01 01:00:00
 ---
 
