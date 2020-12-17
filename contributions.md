@@ -19,7 +19,22 @@ It is a framework and distributed processing engine for stateful computations ov
 
 [Pull request](https://github.com/apache/flink/pull/13096)
 
-## Liquibase
+### Apache Flink Connector DynamoDB
+
+Java library that provides Apache Flink connector sink for AWS DynamoDB database that can be used with Flink 1.8 runtime version.
+Apache Flink does not provide a connector sink for AWS DynamoDB database out of the box at the moment. 
+That project is to solve this gap.
+
+[Flink Connector DynamoDB](https://github.com/klarna-incubator/flink-connector-dynamodb)
+
+### Apache Flink Connector JDBC 1.8
+
+Java library provides Apache Flink connector sink for JDBC database that can be used with Flink 1.8 runtime version. Connector code is backported from the latest Flink version (1.11) in order to be used in Amazon Kinesis Data Analytics applications.
+
+[Apache Flink Connector JDBC 1.8](https://github.com/klarna-incubator/flink-connector-jdbc-1.8)
+
+
+### Liquibase
 
 Liquibase helps millions of teams track, version, and deploy database schema changes.
 
