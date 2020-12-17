@@ -44,7 +44,7 @@ Liquibase helps millions of teams track, version, and deploy database schema cha
 
 [Pull request](https://github.com/liquibase/docker/pull/34)
 
-## 2018-2019
+## 2019
 
 ### Netflix Ribbon and Spring Cloud Netflix
 
