@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Name: Vladimir Kotov
+Name: Vladimirs Kotovs
 
 Email: vladimir kotov.lv
 
