@@ -6,6 +6,16 @@ permalink: /contributions/
 
 *Here to be ocasionally updated list of my open source contributions*
 
+## 2021
+
+### Presto
+
+Presto is a distributed SQL query engine for big data.
+
+[Presto](https://github.com/prestodb/presto)
+
+[Pull request](https://github.com/prestodb/presto/pull/15537)
+
 ## 2020
 
 ### Apache Flink
@@ -44,13 +54,6 @@ Liquibase helps millions of teams track, version, and deploy database schema cha
 
 [Pull request](https://github.com/liquibase/docker/pull/34)
 
-### Presto
-
-Presto is a distributed SQL query engine for big data.
-
-[Presto](https://github.com/prestodb/presto)
-
-[Pull request](https://github.com/prestodb/presto/pull/15537)
 
 ## 2019
 
