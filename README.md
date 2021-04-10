@@ -1,2 +1,2 @@
-rk13.github.io
+blog.kotov.lv
 ==============
