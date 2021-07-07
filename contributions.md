@@ -16,6 +16,8 @@ Presto is a distributed SQL query engine for big data.
 
 [Pull request](https://github.com/prestodb/presto/pull/15537)
 
+[Contributed to release](https://prestodb.io/docs/current/release/release-0.249.html)
+
 ## 2020
 
 ### Apache Flink
