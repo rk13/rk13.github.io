@@ -9,7 +9,9 @@ permalink: /talks/
 
 Presentation and blog article for Reliability @Scale technical conference.
 In this talk, we have explored the key components that make Meta’s WWW release process sustainable, effective, and robust in the face of rapid growth. Meta’s competitive advantage lies in its reliable and frequent releases, a process that has been continuous since 2017. This process has not only stood the test of time but has also evolved to meet the demands of an expanding organization.
+
 [Blog Article](https://atscaleconference.com/scaling-releases-inside-meta-www-release-operations/)
+
 [Video Presentation](https://atscaleconference.com/videos/scaling-releases-inside-metas-www-release-operations/)
 
 
