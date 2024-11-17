@@ -21,6 +21,7 @@ In this talk, we have explored the key components that make Meta’s WWW release
 Sharing our experience and key learnings of using Amazon Kinesis Data Analytics and Flink for processing Kafka events encoded using Apache Avro and discuss how to implement custom deserialization schema in Flink and why you might need that.
 
 [Post on the topic](https://blog.kotov.lv/2020/08/01/flink-generic-kafka-deserializationdchema.html)
+
 [Presentation slides](/resources/2020-08-flink.pdf)
 
 # "Talk from a local" on Klarna Live Series Riga
