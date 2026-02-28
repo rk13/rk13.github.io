@@ -167,7 +167,7 @@ sdb4 ~ 300gb
 #cp -dpRx /var/ /mnt/varlv
 ```
 
-[1]: http://blog.kotov.lv/2015/05/planning-the-future-for-curie/
+[1]: /2015/05/25/planning-the-future-for-curie.html
 
 [2]: http://wiki.hetzner.de/index.php/Installimage/ru
 
